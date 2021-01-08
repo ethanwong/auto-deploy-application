@@ -3,7 +3,7 @@
  * @Author: Ethan Wong
  * @Date: 2021-01-08 09:50:55
  * @FilePath: \app.js
- * @LastEditTime: 2021-01-08 14:12:26
+ * @LastEditTime: 2021-01-08 17:16:31
  * @LastEditors: your name
  */
 var express = require('express');
@@ -19,14 +19,25 @@ app.use(bodyParser.json())
 app.use('/public', express.static('public'));
 
 app.get('/', function (req, res) {
-    res.send('<h1>Hello Node.js</h1>');
+    res.send('<h1>auto-deploy-application</h1>');
 })
 
 
 app.post('/deploy', function (req, res) {
+
+    console.log("hostname="+req.hostname)
+    console.log("ip="+req.ip)
+    console.log("originalUrl="+req.originalUrl)
+    console.log("path="+req.path)
+    console.log("query="+req.query)
+
+    
     var command = 'sh deploy.sh restart';
     exec(command);
-    res.send(JSON.stringify(req.body));
+
+    console.log(JSON.stringify(req.body));
+    
+    res.send("ok");
 })
 
 function exec(command){
