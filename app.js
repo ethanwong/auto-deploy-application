@@ -3,7 +3,7 @@
  * @Author: Ethan Wong
  * @Date: 2021-01-08 09:50:55
  * @FilePath: \app.js
- * @LastEditTime: 2021-01-08 17:16:31
+ * @LastEditTime: 2021-01-08 17:33:23
  * @LastEditors: your name
  */
 var express = require('express');
@@ -29,12 +29,13 @@ app.post('/deploy', function (req, res) {
     console.log("ip="+req.ip)
     console.log("originalUrl="+req.originalUrl)
     console.log("path="+req.path)
-    console.log("query="+req.query)
-
+    console.log("query="+JSON.stringify(req.query))
     
-    var command = 'sh deploy.sh restart';
-    exec(command);
-
+    if(req.query.secret == "9b67b0c4756c46f0a96f94170159ac5b"){
+        var command = 'sh deploy.sh restart';
+        exec(command);
+    }
+    
     console.log(JSON.stringify(req.body));
     
     res.send("ok");
