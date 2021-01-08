@@ -1,15 +1,41 @@
 {
   "name": "auto-deploy-application",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "npm install express --save",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "pack": "webpack --mode development app.js",
+    "dev": "webpack --mode development",
+    "test": "webpack -v"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "app": "^0.1.0",
+    "body-parser": "^1.19.0",
+    "buffer": "^6.0.3",
+    "child_process": "^1.0.2",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "http": "0.0.1-security",
+    "pack": "^2.2.0",
+    "path": "^0.12.7",
+    "url": "^0.11.0",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.1",
+    "webpack-dev-server": "^3.11.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethanwong/auto-deploy-application.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ethanwong/auto-deploy-application/issues"
+  },
+  "homepage": "https://github.com/ethanwong/auto-deploy-application#readme",
+  "devDependencies": {
+    "copy-webpack-plugin": "^7.0.0"
   }
 }
