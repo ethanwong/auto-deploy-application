@@ -13,7 +13,7 @@ echo ****start deploy****
 command=$1
 dir="/home"
 name="imethan-blog-2"
-jar="imethan-blog-2-dev-2.0.0.jar"
+jar="imethan-blog-2-pro-2.0.0.jar"
 target=$dir/$name/target/$jar
 
 echo exec command=$1
@@ -36,8 +36,8 @@ if [ "$command" == "restart" ];then
 
 
 	#编译打包
-	echo ****exec mevn clean package -DskipTests -P dev****
-	mvn clean package -DskipTests -P dev
+	echo ****exec mevn clean package -DskipTests -P pro****
+	mvn clean package -DskipTests -P pro
 
 	#停止已启动jar
 	echo ****exec ps -ef kill jar****
